@@ -1,24 +1,25 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import React, { ChangeEvent } from 'react';
 import {
   Select,
 } from "@chakra-ui/react"
+interface Props {
+  value: string,
+  onChange: (value: string) => void
+}
 
-import getExchangeRate from './get-exchange-rate.service'
-
-const CurrencySelect = () => {
-  const [currency, setCurrency] = useState('CAD')
-  const handleSetCurrency = (event: ChangeEvent<HTMLSelectElement>) => {
-    setCurrency(event.target.value)
+const CurrencySelect = ({ value, onChange }: Props) => {
+  const handleOnChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    onChange(event.target.value)
   }
-  useEffect(getExchangeRate, [currency]);
 
   return (
       <Select
-        value={currency}
-        onChange={handleSetCurrency}
+        value={value}
+        onChange={handleOnChange}
       >
         <option value="CAD">CAD</option>
         <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
       </Select>
   );
 }

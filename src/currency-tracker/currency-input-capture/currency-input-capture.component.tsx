@@ -1,8 +1,5 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import {
-  Box,
-  FormControl,
-  FormLabel,
   Select,
   NumberInput,
   NumberInputField,
@@ -11,14 +8,17 @@ import {
   NumberDecrementStepper
 } from "@chakra-ui/react"
 
+import getCurrencyExchangeRate from './currency-input-capture.service'
+
 export default () => {
   const [currency, setCurrency] = useState('CAD')
   const handleSetCurrency = (event: ChangeEvent<HTMLSelectElement>) => {
     setCurrency(event.target.value)
   }
+  useEffect(getCurrencyExchangeRate, [currency]);
 
   return (
-    <Box>
+    <>
       <Select
         value={currency}
         onChange={handleSetCurrency}
@@ -33,6 +33,6 @@ export default () => {
           <NumberDecrementStepper />
         </NumberInputStepper>
       </NumberInput>
-    </Box>
+    </>
   );
 }

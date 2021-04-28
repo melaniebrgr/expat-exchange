@@ -1,6 +1,5 @@
 import React, { ChangeEvent, useState } from 'react'
 import {
-  Box,
   Text,
   Select
 } from "@chakra-ui/react"
@@ -12,7 +11,7 @@ export default () => {
   }
 
   return (
-      <Box>
+      <>
         <Select
           value={currency}
           onChange={handleSetCurrency}
@@ -20,7 +19,7 @@ export default () => {
           <option value="EUR">EUR</option>
         </Select>
         <Text>1</Text>
-      </Box>
+      </>
   );
 }
 

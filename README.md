@@ -1,7 +1,7 @@
 # Expat Exchange
 Do you always find yourself typing "EUR to CAD" into Google? Save a keystroke with "Expat Exchange". As a Canadian expat in the Netherlands, I know how tedious it can be to convert currencies from in EUR to CAD, with this small application, set up with a sensible default, you can save 500ms a day. But it's not just for Canadians in Europe! You can pick your own target currencies as well.
 
-Note to reviewers: this was also an experiment in application design and structuring. :) 
+Aside: this was also an experiment in application design and structuring. :) 
 
 ## Architecture Description
 
@@ -15,7 +15,7 @@ Users per day are expected to be in the low tens.
 
 - Convert any amount from one currency to another.
 - See how the exchange rate has varied over the last 30 days.
-- Mobile friendly and efficient: minimize the number of API requests to make the app as efficient as possible
+- Mobile friendly and efficient: minimize the number of API requests to make the app as efficient as possible.
 
 ### Additional context
 
@@ -39,3 +39,6 @@ which can be handled by a single "monolithic" component, "currency tracker" with
 3. As an expat, I want to change the currencies from CAD and EUR to any currency
 4. As an expat, I want to see the exchange rates from the last 30 days in a list
 5. As an expat, I want to see the trend in exchange rates in the last 30 days (i.e. in a graph)
+
+## Design decisions
+- Selected ChakraUI to provide a quick, accessible UI foundation

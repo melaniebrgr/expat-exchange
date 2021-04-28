@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import {
+  Heading,
+  Box,
+  FormControl,
+  Select
+} from "@chakra-ui/react"
+
+import CurrencyInputTracker from './currency-tracker/currency-input-capture/currency-input-capture.component'
+import CurrencyOutput from './currency-tracker/currency-output/currency-output.component'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Heading>Expat Exchange</Heading>
+      <CurrencyInputTracker />
+      <CurrencyOutput />
+    </>
   );
 }
 
-export default App;
+export default App

@@ -3,17 +3,20 @@ import {
   Box
 } from "@chakra-ui/react"
 
-import CurrencyInputCapture from './currency-input-capture/currency-input-capture.component'
-import CurrencyOutput from './currency-output/currency-output.component'
+import CurrencySelect from './currency-input/currency-select.component'
+import AmountInput from './currency-input/amount-input.component'
+import AmountOutput from './currency-output/amount-output.component'
 
 const CurrencyTracker = () => {
   return (
     <>
       <Box>
-        <CurrencyInputCapture />
+        <CurrencySelect />
+        <AmountInput />
       </Box>
       <Box>
-        <CurrencyOutput />
+        <CurrencySelect />
+        <AmountOutput />
       </Box>
     </>
   );

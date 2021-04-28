@@ -1,18 +1,25 @@
-import React from 'react'
+import React, { ChangeEvent, useState } from 'react'
 import {
   Box,
-  FormControl,
+  Text,
   Select
 } from "@chakra-ui/react"
 
 export default () => {
+  const [currency, setCurrency] = useState('EUR')
+  const handleSetCurrency = (event: ChangeEvent<HTMLSelectElement>) => {
+    setCurrency(event.target.value)
+  }
+
   return (
       <Box>
-        <FormControl id="target-currency">
-          <Select>
-            <option>EUR</option>
-          </Select>
-        </FormControl>
+        <Select
+          value={currency}
+          onChange={handleSetCurrency}
+        >
+          <option value="EUR">EUR</option>
+        </Select>
+        <Text>1</Text>
       </Box>
   );
 }

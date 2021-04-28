@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import {
   Box,
   FormControl,
@@ -12,23 +12,27 @@ import {
 } from "@chakra-ui/react"
 
 export default () => {
+  const [currency, setCurrency] = useState('CAD')
+  const handleSetCurrency = (event: ChangeEvent<HTMLSelectElement>) => {
+    setCurrency(event.target.value)
+  }
+
   return (
     <Box>
-      <FormControl id="base-currency">
-        <Select>
-          <option>CAD</option>
-        </Select>
-      </FormControl>
-      <FormControl id="amount">
-        <FormLabel>Amount</FormLabel>
-        <NumberInput max={50} min={10}>
-          <NumberInputField />
-          <NumberInputStepper>
-            <NumberIncrementStepper />
-            <NumberDecrementStepper />
-          </NumberInputStepper>
-        </NumberInput>
-      </FormControl>
+      <Select
+        value={currency}
+        onChange={handleSetCurrency}
+      >
+        <option value="CAD">CAD</option>
+        <option value="USD">USD</option>
+      </Select>
+      <NumberInput defaultValue={1} precision={2} min={0}>
+        <NumberInputField />
+        <NumberInputStepper>
+          <NumberIncrementStepper />
+          <NumberDecrementStepper />
+        </NumberInputStepper>
+      </NumberInput>
     </Box>
   );
 }

@@ -1,9 +1,6 @@
 import React from 'react'
 import {
-  Heading,
-  Box,
-  FormControl,
-  Select
+  Heading
 } from "@chakra-ui/react"
 
 import CurrencyInputTracker from './currency-tracker/currency-input-capture/currency-input-capture.component'

@@ -29,7 +29,7 @@ const currency = {
     setter: () => {}
   },
   rate: {
-    value: 1,
+    value: 0,
     setter: () => {}
   },
   amount: {

@@ -2,6 +2,8 @@ import React, { ChangeEvent } from 'react';
 import {
   Select,
 } from "@chakra-ui/react"
+
+import currencyList from './currency-select.constants.json'
 interface Props {
   value: string,
   onChange: (value: string) => void
@@ -17,9 +19,7 @@ const CurrencySelect = ({ value, onChange }: Props) => {
         value={value}
         onChange={handleOnChange}
       >
-        <option value="CAD">CAD</option>
-        <option value="USD">USD</option>
-        <option value="EUR">EUR</option>
+        { currencyList.map( currency => ( <option key={currency.currencyCode} value={currency.currencyCode}>{ `${currency.currencyName} (${currency.currencyCode})` }</option>)) }
       </Select>
   );
 }

@@ -17,7 +17,7 @@ const CurrencyTracker = () => {
     async () => {
       const value = await getExchangeRate({ fromCurrency: from.value, toCurrency: to.value })
       rate.setter(value)
-    }, [from.value, to.value, rate]
+    }, [from.value, to.value]
   )
 
   useEffect(() => { loadExchangeRate() }, [loadExchangeRate, from.value, to.value]);

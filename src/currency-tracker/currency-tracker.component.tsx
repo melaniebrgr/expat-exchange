@@ -7,6 +7,7 @@ import CurrencySelect from './currency-input/currency-select.component'
 import AmountInput from './currency-input/amount-input.component'
 import getExchangeRate from './currency-input/get-exchange-rate.service'
 import AmountOutput from './currency-output/amount-output.component'
+import HistoricalRates from './currency-output/historical-rates.component'
 import { CurrencyContext } from './currency-output/currency-output.context'
 import { calculateAmount } from './amount-calculator/amount-calculater.utils'
 
@@ -33,6 +34,9 @@ const CurrencyTracker = () => {
       <Box>
         <CurrencySelect value={to.value} onChange={to.setter} />
         <AmountOutput value={toAmount} />
+      </Box>
+      <Box>
+        <HistoricalRates />
       </Box>
     </>
   );

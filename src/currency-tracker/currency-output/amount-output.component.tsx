@@ -4,7 +4,7 @@ import {
 } from "@chakra-ui/react"
 
 interface Props {
-  value: number
+  value: string
 }
 
 const AmountOutput = ({ value }: Props) => {

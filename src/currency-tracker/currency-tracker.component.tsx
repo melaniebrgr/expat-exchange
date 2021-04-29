@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useCallback } from 'react'
+import React, { useContext, useEffect, useCallback, useMemo } from 'react'
 import {
   Box
 } from "@chakra-ui/react"
@@ -8,6 +8,7 @@ import AmountInput from './currency-input/amount-input.component'
 import getExchangeRate from './currency-input/get-exchange-rate.service'
 import AmountOutput from './currency-output/amount-output.component'
 import { CurrencyContext } from './currency-output/currency-output.context'
+import { calculateAmount } from './amount-calculator/amount-calculater.utils'
 
 const CurrencyTracker = () => {
   const { from, to, rate, amount } = useContext(CurrencyContext); 
@@ -20,6 +21,8 @@ const CurrencyTracker = () => {
   )
 
   useEffect(() => { loadExchangeRate() }, [loadExchangeRate, from.value, to.value]);
+
+  const toAmount = useMemo(() => calculateAmount(amount.value, rate.value), [amount.value, rate.value]);
   
   return (
     <>
@@ -29,7 +32,7 @@ const CurrencyTracker = () => {
       </Box>
       <Box>
         <CurrencySelect value={to.value} onChange={to.setter} />
-        <AmountOutput value={rate.value * amount.value} />
+        <AmountOutput value={toAmount} />
       </Box>
     </>
   );

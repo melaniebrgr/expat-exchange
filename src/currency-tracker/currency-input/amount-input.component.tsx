@@ -10,7 +10,7 @@ interface Props {
 }
 
 const AmountInput = ({ onBlur }: Props) => {
-  const handleOnBlur= (event: ChangeEvent<HTMLInputElement>) => {
+  const handleOnBlur = (event: ChangeEvent<HTMLInputElement>) => {
     onBlur(Number.parseFloat(event.target.value))
   }
 

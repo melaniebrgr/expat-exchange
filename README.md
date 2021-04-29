@@ -37,13 +37,12 @@ which can be organized in a component, "currency tracker" that has a pipeline ar
 1. [x] As an expat, I want to see what 1 dollar in CAD is in EUR
 2. [x] As an expat, I want to change the dollar amount and see it updated in EUR
 3. [x] As an expat, I want to change the currencies from CAD and EUR to any currency
-4. As an expat, I want to see the exchange rates from the last 30 days in a list
-5. As an expat, I want to see the trend in exchange rates in the last 30 days (i.e. in a graph)
+4. [x] As an expat, I want to see the exchange rates from the last 30 days in a list
+5. [x] As an expat, I want to see the trend in exchange rates in the last 30 days (i.e. in a graph)
 
-## To do
+## Improvements
 - Extract strings to localized JSON file
 - Localize currency formatting
-- Handle unhappy path (network error, data invalid error)
-
-## Design decisions
-- Selected ChakraUI to provide a quick, accessible UI foundation
+- Define custom error codes and pass to loader
+- Handle unhappy paths, right now network errors, data invalid errors are no-ops
+- Theme

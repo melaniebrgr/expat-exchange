@@ -1,25 +1,17 @@
 import React from 'react'
-import { XYPlot, VerticalGridLines, HorizontalGridLines, XAxis, YAxis, LineSeries } from 'react-vis'
+import { XYPlot, XAxis, YAxis, LineSeries } from 'react-vis'
 
-const data = [
-  {x: 0, y: 8},
-  {x: 1, y: 5},
-  {x: 2, y: 4},
-  {x: 3, y: 9},
-  {x: 4, y: 1},
-  {x: 5, y: 7},
-  {x: 6, y: 6},
-  {x: 7, y: 3},
-  {x: 8, y: 2},
-  {x: 9, y: 0}
-];
+type listItem = { x: number, y: number }
+interface Props {
+  values: listItem[]
+}
 
-const HistoricalRates = () => {
+const HistoricalRates = ({ values }: Props) => {
   return (
     <XYPlot height={300} width= {300}>
-      <XAxis />
+      <XAxis title="last 30 days" tickTotal={0} />
       <YAxis />
-      <LineSeries data={data} />
+      <LineSeries data={values} />
     </XYPlot>
   )
 }

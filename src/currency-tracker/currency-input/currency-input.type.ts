@@ -1,0 +1,1 @@
+export type DailyExchangeRate = { date: string, timestamp: number, value: number }

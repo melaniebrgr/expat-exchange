@@ -5,25 +5,39 @@ import {
 
 import CurrencySelect from './currency-input/currency-select.component'
 import AmountInput from './currency-input/amount-input.component'
-import getExchangeRate from './currency-input/get-exchange-rate.service'
 import AmountOutput from './currency-output/amount-output.component'
 import HistoricalRates from './currency-output/historical-rates.component'
+import getExchangeRate from './currency-input/get-exchange-rate.service'
+import getDailyExchangeRates from './currency-input/get-daily-exchange-rates.service'
 import { CurrencyContext } from './currency-output/currency-output.context'
 import { calculateAmount } from './amount-calculator/amount-calculater.utils'
 
 const CurrencyTracker = () => {
-  const { from, to, rate, amount } = useContext(CurrencyContext); 
+  const { from, to, rate, rates, amount } = useContext(CurrencyContext); 
 
   const loadExchangeRate = useCallback(
-    async () => {
-      const value = await getExchangeRate({ fromCurrency: from.value, toCurrency: to.value })
-      rate.setter(value)
+    () => {
+      getExchangeRate({ fromCurrency: from.value, toCurrency: to.value })
+        .then(rate.setter, () => {})
     }, [from.value, to.value]
   )
 
-  useEffect(() => { loadExchangeRate() }, [loadExchangeRate, from.value, to.value]);
+  const loadDailyExchangeRates = useCallback(
+    () => {
+      getDailyExchangeRates({ fromCurrency: from.value, toCurrency: to.value })
+        .then(rates.setter, () => {})
+    }, [from.value, to.value]
+  )
+
+  useEffect(
+    () => { 
+      loadExchangeRate()
+      loadDailyExchangeRates()
+    }, [loadExchangeRate, loadDailyExchangeRates, from.value, to.value]
+  );
 
   const toAmount = useMemo(() => calculateAmount(amount.value, rate.value), [amount.value, rate.value]);
+  const toRates = useMemo(() => rates.value.map((x, i) => ({ x: i, y: x.value })), [from.value, to.value]);
   
   return (
     <>
@@ -36,7 +50,7 @@ const CurrencyTracker = () => {
         <AmountOutput value={toAmount} />
       </Box>
       <Box>
-        <HistoricalRates />
+        <HistoricalRates values={toRates}/>
       </Box>
     </>
   );

@@ -1,5 +1,7 @@
 import { createContext } from 'react'
 
+import { DailyExchangeRate } from '../currency-input/currency-input.type'
+
 type Context = {
   from: {
     value: string,
@@ -13,6 +15,10 @@ type Context = {
     value: number,
     setter: (value: number) => void
   },
+  rates: {
+    value: DailyExchangeRate[],
+    setter: (value: DailyExchangeRate[]) => void
+  }
   amount: {
     value: number,
     setter: (value: number) => void
@@ -30,6 +36,10 @@ const currency = {
   },
   rate: {
     value: 0,
+    setter: () => {}
+  },
+  rates: {
+    value: [],
     setter: () => {}
   },
   amount: {

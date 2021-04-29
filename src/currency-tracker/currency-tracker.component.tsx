@@ -10,7 +10,7 @@ import AmountOutput from './currency-output/amount-output.component'
 import { CurrencyContext } from './currency-output/currency-output.context'
 
 const CurrencyTracker = () => {
-  const { from, to, rate } = useContext(CurrencyContext); 
+  const { from, to, rate, amount } = useContext(CurrencyContext); 
 
   const loadExchangeRate = useCallback(
     async () => {
@@ -25,11 +25,11 @@ const CurrencyTracker = () => {
     <>
       <Box>
         <CurrencySelect value={from.value} onChange={from.setter} />
-        <AmountInput onBlur={ amount => console.log(amount) } />
+        <AmountInput value={amount.value} onBlur={amount.setter} />
       </Box>
       <Box>
         <CurrencySelect value={to.value} onChange={to.setter} />
-        <AmountOutput value={rate.value * 1} />
+        <AmountOutput value={rate.value * amount.value} />
       </Box>
     </>
   );

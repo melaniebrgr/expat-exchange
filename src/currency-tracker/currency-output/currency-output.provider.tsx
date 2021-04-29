@@ -9,6 +9,7 @@ export const CurrencyProvider = ({ children }: Props) => {
   const [ fromCurrency, setFromCurrency ] = useState<string>('EUR')
   const [ toCurrency, setToCurrency ] = useState<string>('CAD')
   const [ rate, setRate ] = useState<number>(1)
+  const [ amount, setAmount ] = useState<number>(0)
 
   const currencyStore = {
     from: {
@@ -22,7 +23,11 @@ export const CurrencyProvider = ({ children }: Props) => {
     rate: {
       value: rate,
       setter: setRate
-    }
+    },
+    amount: {
+      value: amount,
+      setter: setAmount
+    },
   }
 
   return (

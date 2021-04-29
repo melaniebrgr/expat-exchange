@@ -5,16 +5,17 @@ import {
 } from "@chakra-ui/react"
 
 interface Props {
-  onBlur: (value: string) => void
+  value: number,
+  onBlur: (value: number) => void
 }
 
 const AmountInput = ({ onBlur }: Props) => {
   const handleOnBlur= (event: ChangeEvent<HTMLInputElement>) => {
-    onBlur(event.target.value)
+    onBlur(Number.parseFloat(event.target.value))
   }
 
   return (
-      <NumberInput defaultValue={1} precision={2} min={0} onBlur={handleOnBlur}>
+      <NumberInput precision={2} min={0} onBlur={handleOnBlur}>
         <NumberInputField />
       </NumberInput>
   );

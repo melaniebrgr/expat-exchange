@@ -12,6 +12,10 @@ type Context = {
   rate: {
     value: number,
     setter: (value: number) => void
+  },
+  amount: {
+    value: number,
+    setter: (value: number) => void
   }
 }
 
@@ -26,6 +30,10 @@ const currency = {
   },
   rate: {
     value: 1,
+    setter: () => {}
+  },
+  amount: {
+    value: 0,
     setter: () => {}
   }
 }

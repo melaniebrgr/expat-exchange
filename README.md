@@ -30,18 +30,17 @@ The only two architecture characteristics that require special desgin considerat
 ## Components
 There is a single user type, an expat, who needs to
 - select currencies
-- view the exchange rate of the currencies
-which can be handled by a single "monolithic" component, "currency tracker" with a simple pipeline architecture style: currency input capture -> amount calculator -> currency output.
+- view the exchange rate of the currencies for some amount
+which can be organized in a component, "currency tracker" that has a pipeline architecture "style": currency input -> amount calculator -> currency output.
 
 ## Stories
-1. As an expat, I want to see what 1 dollar in CAD is in EUR
-2. As an expat, I want to change the dollar amount and see it updated in EUR
-3. As an expat, I want to change the currencies from CAD and EUR to any currency
+1. [x] As an expat, I want to see what 1 dollar in CAD is in EUR
+2. [x] As an expat, I want to change the dollar amount and see it updated in EUR
+3. [x] As an expat, I want to change the currencies from CAD and EUR to any currency
 4. As an expat, I want to see the exchange rates from the last 30 days in a list
 5. As an expat, I want to see the trend in exchange rates in the last 30 days (i.e. in a graph)
 
 ## To do
-- Load currencies list from an API
 - Extract strings to localized JSON file
 - Localize currency formatting
 - Handle unhappy path (network error, data invalid error)

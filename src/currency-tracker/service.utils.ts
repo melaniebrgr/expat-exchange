@@ -3,10 +3,10 @@ export const loader = ({ loader, validator, transform }: any) =>
     loader(...args)
       .catch(() => {
         console.log('ERROR: NETWORK')
-        Promise.reject({})
+        Promise.reject(null)
       })
       .then((data: any) => 
         validator(data)
           ? Promise.resolve(transform(data))
-          : Promise.reject({})
+          : (console.log('ERROR: INVALID DATA'), Promise.reject(null))
       )

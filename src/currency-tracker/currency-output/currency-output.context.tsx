@@ -8,6 +8,10 @@ type Context = {
   to: {
     value: string,
     setter: (value: string) => void
+  },
+  rate: {
+    value: number,
+    setter: (value: number) => void
   }
 }
 
@@ -18,6 +22,10 @@ const currency = {
   },
   to: {
     value: 'CAD',
+    setter: () => {}
+  },
+  rate: {
+    value: 1,
     setter: () => {}
   }
 }

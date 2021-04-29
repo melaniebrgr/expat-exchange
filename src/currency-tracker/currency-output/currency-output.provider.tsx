@@ -8,6 +8,7 @@ interface Props {
 export const CurrencyProvider = ({ children }: Props) => {
   const [ fromCurrency, setFromCurrency ] = useState<string>('EUR')
   const [ toCurrency, setToCurrency ] = useState<string>('CAD')
+  const [ rate, setRate ] = useState<number>(1)
 
   const currencyStore = {
     from: {
@@ -17,6 +18,10 @@ export const CurrencyProvider = ({ children }: Props) => {
     to: {
       value: toCurrency,
       setter: setToCurrency
+    },
+    rate: {
+      value: rate,
+      setter: setRate
     }
   }
 

@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import {
   NumberInput,
-  NumberInputField,
-  NumberInputStepper,
-  NumberIncrementStepper,
-  NumberDecrementStepper
+  NumberInputField
 } from "@chakra-ui/react"
 
-const AmountInput = () => {
+interface Props {
+  onBlur: (value: string) => void
+}
+
+const AmountInput = ({ onBlur }: Props) => {
+  const handleOnBlur= (event: ChangeEvent<HTMLInputElement>) => {
+    onBlur(event.target.value)
+  }
+
   return (
-      <NumberInput defaultValue={1} precision={2} min={0}>
+      <NumberInput defaultValue={1} precision={2} min={0} onBlur={handleOnBlur}>
         <NumberInputField />
-        <NumberInputStepper>
-          <NumberIncrementStepper />
-          <NumberDecrementStepper />
-        </NumberInputStepper>
       </NumberInput>
   );
 }

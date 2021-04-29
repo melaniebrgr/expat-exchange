@@ -3,9 +3,13 @@ import {
   Text
 } from "@chakra-ui/react"
 
-const AmountOutput = () => {
+interface Props {
+  value: number
+}
+
+const AmountOutput = ({ value }: Props) => {
   return (
-    <Text>1</Text>
+    <Text>{ value }</Text>
   );
 }
 

@@ -1,6 +1,6 @@
 import { has, pipe, propOr, takeLast, mapObjIndexed, sort, values } from 'ramda'
 
-import { loader } from '../service.utils'
+import { loader } from '../../service.utils'
 import { DailyExchangeRate } from './currency-input.type'
 
 const loadDailyExchangeRates = ({ fromCurrency = 'EUR', toCurrency = 'CAD' }) =>

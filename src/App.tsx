@@ -1,16 +1,18 @@
 import React from 'react'
 import {
-  Heading
+  Box,
+  Heading,
+  Text
 } from "@chakra-ui/react"
 
 import CurrencyTracker from './currency-tracker/currency-tracker.component'
 
 function App() {
   return (
-    <>
+    <Box margin={10}>
       <Heading>Expat Exchange</Heading>
       <CurrencyTracker />
-    </>
+    </Box>
   );
 }
 

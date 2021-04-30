@@ -1,7 +1,5 @@
 import React, { useContext, useEffect, useCallback, useMemo } from 'react'
-import {
-  Box
-} from "@chakra-ui/react"
+import { Grid, GridItem } from "@chakra-ui/react"
 
 import CurrencySelect from './currency-input/currency-select.component'
 import AmountInput from './currency-input/amount-input.component'
@@ -36,23 +34,22 @@ const CurrencyTracker = () => {
     }, [loadExchangeRate, loadDailyExchangeRates, from.value, to.value]
   );
 
-  const toAmount = useMemo(() => calculateAmount(amount.value, rate.value), [amount.value, rate.value]);
-  const toRates = useMemo(() => rates.value.map((x, i) => ({ x: i, y: x.value })), [from.value, to.value]);
+  const toAmount = useMemo(() => calculateAmount(amount.value, rate.value), [amount.value, rate.value])
   
   return (
-    <>
-      <Box>
+    <Grid templateRows="repeat(2, 1fr)" templateColumns="repeat(2, 1fr)" gap={10}>
+      <GridItem colSpan={1} p={4}>
         <CurrencySelect value={from.value} onChange={from.setter} />
         <AmountInput value={amount.value} onBlur={amount.setter} />
-      </Box>
-      <Box>
+      </GridItem>
+      <GridItem colSpan={1} p={4}>
         <CurrencySelect value={to.value} onChange={to.setter} />
         <AmountOutput value={toAmount} />
-      </Box>
-      <Box>
-        <HistoricalRates values={toRates}/>
-      </Box>
-    </>
+      </GridItem>
+      <GridItem colSpan={1} p={4}>
+        <HistoricalRates values={rates.value.map((x, i) => ({ x: i, y: x.value }))}/>
+      </GridItem>
+    </Grid>
   );
 }
 

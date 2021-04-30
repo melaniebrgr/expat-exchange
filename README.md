@@ -1,7 +1,7 @@
 # Expat Exchange
 Do you always find yourself typing "EUR to CAD" into Google? Save a keystroke with "Expat Exchange". As a Canadian expat in the Netherlands, I know how tedious it can be to convert currencies from in EUR to CAD, with this small application, set up with a sensible default, you can save 500ms a day. But it's not just for Canadians in Europe! USD is also available for Americans. :)
 
-Aside: this was also an experiment in application design and structuring.
+Aside: this was also an experiment in component organization.
 
 ## Architecture Description
 
@@ -41,8 +41,9 @@ which can be organized in a component, "currency tracker" that has a pipeline ar
 5. [x] As an expat, I want to see the trend in exchange rates in the last 30 days (i.e. in a graph)
 
 ## Improvements
+- Theme!
 - Extract strings to localized JSON file
 - Localize currency formatting
 - Define custom error codes and pass to loader
 - Handle unhappy paths, right now network errors, data invalid errors are no-ops
-- Theme
+- Display loading states

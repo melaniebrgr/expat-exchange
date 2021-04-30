@@ -47,3 +47,4 @@ which can be organized in a component, "currency tracker" that has a pipeline ar
 - Define custom error codes and pass to loader
 - Handle unhappy paths, right now network errors, data invalid errors are no-ops
 - Display loading states
+- Add tests

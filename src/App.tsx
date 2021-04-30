@@ -1,8 +1,7 @@
 import React from 'react'
 import {
   Box,
-  Heading,
-  Text
+  Heading
 } from "@chakra-ui/react"
 
 import CurrencyTracker from './currency-tracker/currency-tracker.component'

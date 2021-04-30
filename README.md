@@ -41,7 +41,7 @@ which can be organized in a component, "currency tracker" that has a pipeline ar
 5. [x] As an expat, I want to see the trend in exchange rates in the last 30 days (i.e. in a graph)
 
 ## Improvements
-- Theme!
+- Improve the UX and theme
 - Extract strings to localized JSON file
 - Localize currency formatting
 - Define custom error codes and pass to loader
